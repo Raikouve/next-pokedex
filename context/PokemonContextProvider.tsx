@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
-import { getPokemon } from "../services/getPokemon";
-import pokemonContext from "./pokemonContext";
+import { useEffect, useState } from 'react';
+import { getPokemon } from '../services/getPokemon';
+import pokemonContext from './pokemonContext';
 
 const API_URL = 'https://pokeapi.co/api/v2/pokemon/';
 

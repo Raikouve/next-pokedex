@@ -184,19 +184,22 @@ export const DisplayWrapper = styled.div<WrapperProps>`
 
 export const Title = styled.h1`
   color: white;
-  margin: 0 0 1em 0.4em;
+  font-size: 3em;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.6em 0.2em;
   text-transform: uppercase;
 `
 
 export const Box = styled.div<BoxProps>`
   align-items: center;
+  align-content: center;
   background-color: white;
   border-radius: 0.2em;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   display: flex;
   flex-direction: ${props => props.flexDirection};
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: ${props => props.flexDirection === 'column' ? 'space-between' : 'none'};
   margin: 0.6em;
   padding: 0.6em;
   img {
