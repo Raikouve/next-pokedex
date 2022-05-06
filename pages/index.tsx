@@ -4,7 +4,13 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import NextHead from '../components/NextHead';
 import Link from 'next/link';
-import { PageLayout, LoginLayout, InputLayout, ButtonLayout, Rotate } from '../styles/styledComponents';
+import {
+  PageLayout,
+  LoginLayout,
+  InputLayout,
+  ButtonLayout,
+  Rotate
+} from '../styles/styledComponents';
 import pokeballSvg from '../public/assets/pokeball.svg';
 
 const Home: NextPage = () => {
@@ -15,7 +21,7 @@ const Home: NextPage = () => {
   const disabled = isEmailValid(email);
 
   return (
-    <PageLayout>
+    <PageLayout flexDirection='column'>
       <NextHead title='Login' />
       <Header />
       <LoginLayout>
@@ -27,13 +33,16 @@ const Home: NextPage = () => {
           value={ email }
           placeholder='Seu melhor e-mail'
           onChange={ ({ target: { value } }) => setEmail(value) }
+          inputWidth='0.2em'
+          inputRadius='80%'
+          inputMargin='0'
         />
       <Link href='/pokedex'>
         <ButtonLayout
             type='button'
             disabled={ !disabled }
           >
-            Entrar
+            Acessar
           </ButtonLayout>
       </Link>
       </LoginLayout>

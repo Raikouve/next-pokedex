@@ -1,29 +1,44 @@
 import styled, { keyframes } from 'styled-components';
+import { styles } from './styles';
 
-const styles = {
-  colors: {
-    primary: {
-      red: '#D94A4A',
-      gray: '#F2F2F2',
-      blue: '#0460D9'
-    },
-    secondary: {
-      blue: '#5F94D9'
-    }
-  }
+const { colors } = styles;
+
+interface PageProps {
+  flexDirection: string;
 }
 
-export const PageLayout = styled.main`
+interface InputProps {
+  inputWidth: string;
+  inputRadius: string;
+  inputMargin: string;
+}
+
+interface WrapperProps {
+  direction: string;
+  wrapperMargin: string;
+}
+
+interface BoxProps {
+  flexDirection: string;
+}
+
+interface TextProps {
+  backgroundColor: string;
+}
+
+export const PageLayout = styled.main<PageProps>`
   align-items: center;
   display: flex;
-  flex-direction: column;
-  overflow
+  flex-direction: ${props => props.flexDirection};
+  flex-grow: 1;
+  height: 100vh;
+  // overflow
   width: 100vw;
 `
 
 export const HeaderLayout = styled.header`
   display: flex;
-  background-color: ${styles.colors.primary.red};
+  background-color: ${colors.primary.red};
   height: 4em;
   justify-content: space-between;
   padding: 0.6em 2em;
@@ -41,14 +56,16 @@ export const LoginLayout = styled.div`
   width: 20em;
 `
 
-export const InputLayout = styled.input`
-  border: 1px solid ${styles.colors.primary.gray};
-  border-radius: 0.2em;
+export const InputLayout = styled.input<InputProps>`
+  border: 1px solid ${colors.primary.gray};
+  border-radius: ${props => props.inputWidth};
+  font-size: 0.8em;
+  margin: ${props => props.inputMargin};
   padding: 0.6em;
   transition: 200ms ease;
-  width: 80%;
+  width: ${props => props.inputRadius};
   &:focus {
-    border: 1px solid ${styles.colors.primary.red};
+    border: 1px solid ${colors.primary.red};
     outline: none;
   }
 `
@@ -64,12 +81,12 @@ export const ButtonLayout = styled.button`
     cursor: not-allowed;
   }
   &:enabled {
-    background-color: ${styles.colors.primary.blue};
+    background-color: ${colors.primary.blue};
     color: white;
     cursor: pointer;
   }
   &:hover {
-    background-color: ${styles.colors.secondary.blue};
+    background-color: ${colors.secondary.blue};
     color: white;
   }
 `
@@ -89,3 +106,109 @@ export const Rotate = styled.div`
   padding: 5px;
   font-size: 1.2rem;
 `;
+
+export const PokeSelectorLayout = styled.aside`
+  align-items: space-around;
+  background-color: ${colors.primary.red};
+  color: white;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 2;
+  height: 100%;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 1em;
+  transition: 200ms;
+  ::-webkit-scrollbar {
+  width: 0.6em;
+}
+
+  ::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  }
+ 
+  ::-webkit-scrollbar-thumb {
+  background: ${colors.secondary.blue}; 
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+  background: ${colors.primary.blue}; 
+  }
+  p {
+    font-size: 0.8em;
+    text-align: center;
+  }
+  ul {
+    list-style-type: none;
+    text-transform: capitalize;
+  }
+  li {
+    margin-bottom: 0.2em;
+    &:hover {
+      cursor: pointer;
+      font-weight: bold;
+    }
+    &:selected {
+      text-decoration: underline;
+    }
+  }
+  width: 20%;
+`
+
+export const PokeDisplayLayout = styled.article`
+  background-color: ${colors.terciary.blue};
+  display: flex;
+  height: 100vh;
+  padding: 4em;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 80%;
+`
+
+export const Wrapper = styled.div<WrapperProps>`
+  align-items: center;
+  display: flex;
+  flex-direction: ${props => props.direction};
+  justify-content: space-between;
+  margin: ${props => props.wrapperMargin};
+`
+
+export const DisplayWrapper = styled.div<WrapperProps>`
+  display: flex;
+  flex-direction: ${props => props.direction};
+  height: 100vh;
+  margin: ${props => props.wrapperMargin};
+  width: 40%
+`
+
+export const Title = styled.h1`
+  color: white;
+  margin: 0 0 1em 0.4em;
+  text-transform: uppercase;
+`
+
+export const Box = styled.div<BoxProps>`
+  align-items: center;
+  background-color: white;
+  border-radius: 0.2em;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  display: flex;
+  flex-direction: ${props => props.flexDirection};
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0.6em;
+  padding: 0.6em;
+  img {
+    height: 16em;
+  }
+`
+
+export const Text = styled.p`
+  margin: 0 1em 0 0;
+  text-transform: uppercase;
+`
+
+export const TextBox = styled.div<TextProps>`
+  background-color: {props => props.backgroundColor};
+`
