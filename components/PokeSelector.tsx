@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { InputLayout, PokeSelectorLayout, Wrapper } from '../styles/styledComponents';
 import logoPokedex from '../public/assets/logo-pokedex.png';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import pokemonContext from '../context/pokemonContext';
 
 interface PokeSelectorProps {
@@ -17,7 +17,6 @@ const NUMBER_ONE: number = 1;
 export default function PokeSelector({ pokemons }: PokeSelectorProps) {
 
   const [search, setSearch] = useState('');
-  const [pokemonSearch, setPokemonSearch] = useState('');
 
   const { setPokeName } = useContext(pokemonContext);
 

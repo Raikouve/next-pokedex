@@ -8,8 +8,6 @@ import PokemonContextProvider from '../context/PokemonContextProvider';
 import PokeDisplay from '../components/PokeDisplay';
 import Loading from '../components/Loading';
 
-const API_URL = 'https://pokeapi.co/api/v2/pokemon/';
-
 interface PokemonsProps {
   pokemons: Object
 }
@@ -60,8 +58,6 @@ export async function getStaticProps() {
     }
   `, variables: gqlVariables,
   },);
-
-  console.log('data', data);
 
   return {
     props: {

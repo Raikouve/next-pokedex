@@ -9,20 +9,8 @@ export default function PokeDisplay() {
   const { pokemon, loading } = useContext(pokemonContext);
 
   const frontDefault = pokemon.sprites?.front_default;
+  const frontShiny = pokemon.sprites?.front_shiny;
 
-  console.log(pokemon);
-
-  // const pokeColors = [
-  //   {
-  //     name: 'bug',
-  //   },
-  //   {
-  //     name: 'fire',
-  //   },
-  //   {
-  //     name: 'electric',
-  //   }
-  // ]
 
   if(loading) {
     return (
@@ -33,7 +21,7 @@ export default function PokeDisplay() {
   return (
     <PokeDisplayLayout>
       <DisplayWrapper direction='column' wrapperMargin='0'>
-        <Title>{pokemon.name}</Title>
+        <Title margin='0 0 0.6em 0.2em'>{pokemon.name}</Title>
         <Box flexDirection='row' justifyContent='center'>
           <img src={frontDefault} alt={pokemon.name} />
         </Box>
@@ -53,6 +41,12 @@ export default function PokeDisplay() {
         </Wrapper>
         <Box flexDirection='row' justifyContent='none'>
           {pokemon.stats?.map((stat: any) => <Text key={stat.stat.name}>{stat.stat.name}: {stat.base_stat}</Text>)}
+        </Box>
+      </DisplayWrapper>
+      <DisplayWrapper direction='column' wrapperMargin='0'>
+      <Title margin='0 0 0.6em 30%'>Shiny</Title>
+        <Box flexDirection='row' justifyContent='center'>
+          <img src={frontShiny} alt={pokemon.name} />
         </Box>
       </DisplayWrapper>
     </PokeDisplayLayout>

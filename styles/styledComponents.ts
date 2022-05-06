@@ -18,6 +18,10 @@ interface WrapperProps {
   wrapperMargin: string;
 }
 
+interface TitleProps {
+  margin: string;
+}
+
 interface BoxProps {
   flexDirection: string;
   justifyContent: string;
@@ -158,9 +162,11 @@ export const PokeSelectorLayout = styled.aside`
 `
 
 export const PokeDisplayLayout = styled.article`
+  // align-items: center;
   background-color: ${colors.terciary.blue};
   display: flex;
   height: 100vh;
+  justify-content: space-around;
   padding: 4em;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -183,11 +189,11 @@ export const DisplayWrapper = styled.div<WrapperProps>`
   width: 40%
 `
 
-export const Title = styled.h1`
+export const Title = styled.h1<TitleProps>`
   color: white;
   font-size: 3em;
   letter-spacing: 0.02em;
-  margin: 0 0 0.6em 0.2em;
+  margin: ${props => props.margin};
   text-transform: uppercase;
 `
 
