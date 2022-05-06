@@ -34,7 +34,7 @@ export default function PokeDisplay() {
     <PokeDisplayLayout>
       <DisplayWrapper direction='column' wrapperMargin='0'>
         <Title>{pokemon.name}</Title>
-        <Box flexDirection='row' justifyContent='none'>
+        <Box flexDirection='row' justifyContent='center'>
           <img src={frontDefault} alt={pokemon.name} />
         </Box>
         <Box flexDirection='row' justifyContent='space-around'>
