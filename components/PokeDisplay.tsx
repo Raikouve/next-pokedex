@@ -34,24 +34,24 @@ export default function PokeDisplay() {
     <PokeDisplayLayout>
       <DisplayWrapper direction='column' wrapperMargin='0'>
         <Title>{pokemon.name}</Title>
-        <Box flexDirection='column'>
+        <Box flexDirection='row' justifyContent='none'>
           <img src={frontDefault} alt={pokemon.name} />
         </Box>
-        <Box flexDirection='column'>
+        <Box flexDirection='row' justifyContent='space-around'>
             { pokemon.types?.map((ptype: any) =>
             <TextBox key={ptype} backgroundColor={ptype.type.name}>
               <Text>{ptype.type.name}</Text>
             </TextBox>) }
         </Box>
         <Wrapper wrapperMargin='0' direction='row' >
-          <Box flexDirection='row'>
+          <Box flexDirection='row' justifyContent='none'>
             <Text>Height: {(pokemon.height * 0.1).toFixed(1)}m</Text>
           </Box>
-          <Box flexDirection='row'>
+          <Box flexDirection='row' justifyContent='none'>
             <Text>Weight: {(pokemon.weight * 0.1).toFixed(1)}</Text>
           </Box>
         </Wrapper>
-        <Box flexDirection='row'>
+        <Box flexDirection='row' justifyContent='none'>
           {pokemon.stats?.map((stat: any) => <Text key={stat.stat.name}>{stat.stat.name}: {stat.base_stat}</Text>)}
         </Box>
       </DisplayWrapper>

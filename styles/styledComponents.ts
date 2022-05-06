@@ -20,6 +20,7 @@ interface WrapperProps {
 
 interface BoxProps {
   flexDirection: string;
+  justifyContent: string;
 }
 
 interface TextProps {
@@ -199,7 +200,7 @@ export const Box = styled.div<BoxProps>`
   display: flex;
   flex-direction: ${props => props.flexDirection};
   flex-wrap: wrap;
-  justify-content: ${props => props.flexDirection === 'column' ? 'space-between' : 'none'};
+  justify-content: ${props => props.justifyContent};
   margin: 0.6em;
   padding: 0.6em;
   img {
